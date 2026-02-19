@@ -25,4 +25,4 @@ jobs:
 
       # 4. El robot ejecuta tu archivo (Asegúrate de que se llame así)
       - name: Ejecutar programa
-        run: python Mi_programa_meteo.py
+        run: python mi_programa_meteo.py
