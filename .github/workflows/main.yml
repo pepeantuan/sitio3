@@ -1,0 +1,25 @@
+name: Ejecutar mi Python manualmente
+
+# 1. ¿Cuándo se activa? 
+on:
+  workflow_dispatch: # Esto activa el "Botón Mágico" manual
+
+jobs:
+  ejecutar-codigo:
+    # 2. ¿Qué ordenador usamos? Uno con Ubuntu (Linux)
+    runs-on: ubuntu-latest
+
+    steps:
+      # 3. El robot descarga tu código del repo a su ordenador prestado
+      - name: Descargar mi código
+        uses: actions/checkout@v4
+
+      # 4. El robot instala Python
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 5. El robot ejecuta tu archivo (Cambia 'tu_programa.py' por el nombre real)
+      - name: ¡A correr el código!
+        run: python Mi_programa.py
