@@ -1,0 +1,28 @@
+name: Ejecutar Python con Requests
+
+# Esto crea el botón manual en la pestaña Actions
+on:
+  workflow_dispatch:
+
+jobs:
+  ejecutar-con-librerias:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. El robot descarga tu código
+      - name: Descargar mi código
+        uses: actions/checkout@v4
+
+      # 2. El robot prepara Python
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. ¡PASO NUEVO! Instalar la librería requests
+      - name: Instalar librería Requests
+        run: pip install requests
+
+      # 4. El robot ejecuta tu archivo (Asegúrate de que se llame así)
+      - name: Ejecutar programa
+        run: python Mi_programa_meteo.py
